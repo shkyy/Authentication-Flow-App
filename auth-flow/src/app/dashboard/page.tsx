@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import Image from 'next/image';
-import logoImg from '../../public/LOGO.png';
+import logoImg from '../../../public/LOGO.png';
 
 export default function Dashboard() {
     const router = useRouter();

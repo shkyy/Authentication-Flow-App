@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import loginImg from '../../public/login-image.png';
 import logoImg from '../../public/LOGO.png';
 import { useAuthStore } from "@/store/authStore";
@@ -16,7 +16,14 @@ export default function LoginPage() {
     password: '',
   });
 
-  const { login, error, status, clearError } = useAuthStore();
+  const { login, error, status, clearError, user } = useAuthStore();
+  
+  // check is user is already authenticated and redirect to dashabord
+  useEffect(() => {
+    if (status === 'authenticated' && user) {
+        router.push('/dashboard');
+    }
+  }, [status, user, router]);
 
   const validateForm = (): boolean => {
     let isValid = true;
