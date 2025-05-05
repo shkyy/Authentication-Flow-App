@@ -58,7 +58,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="bg-gray-800 p-6 rounded-lg">
-                        <h2 className="text-xl font-semibold mb-3">Account Information</h2>
+                        <h2 className="text-xl font-semibold mb-6">Account Information</h2>
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <span className="text-gray-400">Email:</span>
