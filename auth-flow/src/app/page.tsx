@@ -1,103 +1,81 @@
+'use client';
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import loginImg from '../../public/login-image.png';
+import logoImg from '../../public/LOGO.png';
 
-export default function Home() {
+export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: '',
+  });
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col md:flex-row bg-black text-white">
+      <div className="justify-center px-8 py-10 md:px-20 flex flex-col flex-1">
+      <div className="max-w-xl w-full mx-auto">
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+              <Image src={logoImg} alt="Room.me LOGO" width={130} height={130}/>
+            </div>
+          </div>
+          <div className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">Welcome back to Room.me!</h1>
+          <p className="text-gray-400 text-base">Room.me is an innovative video conference product that revolutionizes virtual meetings.</p>
+          </div>
+          
+          <form className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-sm/6 font-medium">Email Address</label>
+              <div className="mt-2">
+                <input id="email" placeholder="Enter your email address" type="email" name="email" className="block w-full rounded-md bg-gray-900 outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-50 sm:text-sm/6"/>
+              </div>
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm/6 font-medium">Password</label>
+              <div className="mt-2">
+                <input id="password" placeholder="Enter your password" type="password" name="password" className="block w-full rounded-md bg-gray-900 outline-1 -outline-offset-1 outline-gray-500 placeholder:text-gray-50 sm:text-sm/6"/>
+              </div>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <button type="submit" className="w-full bg-[#5C53BC] hover:bg-[#8B80FF]">
+              Sign in
+            </button>
+
+            <button className="w-full bg-white text-black">
+              Sign in with Google
+            </button>
+
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm text-gray-400 mt-2 gap-2">
+              <div className="flex items-center gap-2">
+                <input id="checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                <label htmlFor="checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember for 30 days</label>
+              </div>
+              <a href="#" className="hover:underline text-[#8B80FF]">Forgot Password?</a>
+            </div>
+
+            <div className="text-center text-sm text-gray-400 mt-6">
+              Doesn't have an account? <a href="#" className="text-white font-medium underline">Sign up</a>
+            </div>
+          </form>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <div className="flex-1 hidden md:flex items-center justify-center p-6 mt-2">
+        <Image src={loginImg} alt="Login Image" width={600} height={600}/>
+        <div className="max-w-md bg-transparent border-none shadow-none">
+        <blockquote className="font-semibold text-lg">
+        “We love the screen sharing and whiteboarding features, which have improved our presentations. Room.me has become an essential tool for our team, allowing us to collaborate effectively. Highly recommended!”
+        </blockquote>
+        <p className="mt-4 text-sm">Sarah Markivoc - Project Manager</p>
+        </div>
+
+      </div>
     </div>
-  );
+  )
 }
