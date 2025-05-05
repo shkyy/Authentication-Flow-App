@@ -6,12 +6,27 @@ import { useAuthStore } from '@/store/authStore';
 
 export default function Dashboard() {
   const router = useRouter();
-  const { user, logout } = useAuthStore();
+  const { user, status, logout } = useAuthStore();
+
+  useEffect(() => {
+    // additional check for the client side protection
+    if (status !== 'authenticated') {
+        router.push('/');
+    }
+  }, [status, router]);
 
   const handleLogout = () => {
     logout();
     router.push('/');
   };
+
+  if (status !== 'authenticated' ) {
+    return (
+        <div className='flex justify-center items-center h-screen bg-black'>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#8B80FF]"></div>
+        </div>
+    )
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">

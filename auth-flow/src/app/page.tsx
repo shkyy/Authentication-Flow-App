@@ -122,7 +122,7 @@ export default function LoginPage() {
             <button 
               type="submit" 
               disabled={status === 'loading'}
-              className='w-full px-4 py-1 rounded-md bg-[#5C53BC] hover:bg-[#8B80FF] text-white font-medium transition-colors duration-200 flex justify-center items-center opacity-80 cursor-pointer'
+              className='w-full px-4 py-2 rounded-md bg-[#5C53BC] hover:bg-[#8B80FF] text-white font-medium transition-colors duration-200 flex justify-center items-center opacity-80 cursor-pointer'
             >
               {status === 'loading' ? (
                 <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -144,11 +144,8 @@ export default function LoginPage() {
 
             <button 
               type="button" 
-              className="w-full px-4 py-3 rounded-md bg-white text-black font-medium hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center gap-2"
+              className="w-full px-4 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center gap-2"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM15.5 8C14.1193 8 13 9.11929 13 10.5C13 11.8807 14.1193 13 15.5 13C16.8807 13 18 11.8807 18 10.5C18 9.11929 16.8807 8 15.5 8ZM8.5 8C7.11929 8 6 9.11929 6 10.5C6 11.8807 7.11929 13 8.5 13C9.88071 13 11 11.8807 11 10.5C11 9.11929 9.88071 8 8.5 8ZM12 17.5C9.30761 17.5 6.9934 16.0926 5.87868 14H18.1213C17.0066 16.0926 14.6924 17.5 12 17.5Z" fill="currentColor"></path>
-              </svg>
               Sign in with Google
             </button>
 
