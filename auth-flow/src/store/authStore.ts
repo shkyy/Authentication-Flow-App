@@ -52,6 +52,15 @@ export const useAuthStore = create<AuthState>()(
             });
         },
     }),
-    { name: 'auth-storage'}
+
+    { 
+        name: 'auth-storage', // local storage name
+    
+        // for customizing local storage
+        partialize: (state) => ({
+            user: state.user,
+            status: state.status
+        }),
+    }
 )
 );
